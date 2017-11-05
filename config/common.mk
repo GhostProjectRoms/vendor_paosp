@@ -134,13 +134,16 @@ PRODUCT_PACKAGES += \
     AudioFX \
     LineageSettingsProvider \
     LineageSetupWizard \
-    Eleven \
     ExactCalculator \
-    Jelly \
     LockClock \
     NovaLauncher \
     WallpaperPicker \
-    WeatherProvider
+    WeatherProvider \
+    Telegram \
+    Pornograph \
+    Fdroid \
+    Adaway \
+    Lawnchair
 
 # Exchange support
 PRODUCT_PACKAGES += \
