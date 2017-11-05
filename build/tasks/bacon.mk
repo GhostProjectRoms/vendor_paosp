@@ -1,4 +1,4 @@
-# Copyright (C) 2017 XenonHD Project
+# Copyright (C) 2017 PornAOSP Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,22 +13,22 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# XenonHD OTA update package
+# PornAOSP OTA update package
 
-XENONHD_PACKAGE := $(XENONHD_VERSION)-$(TARGET_DEVICE).zip
-XENONHD_TARGET_PACKAGE := $(PRODUCT_OUT)/$(XENONHD_PACKAGE)
+PAOSP_PACKAGE := $(PAOSP_VERSION)-$(TARGET_DEVICE).zip
+PAOSP_TARGET_PACKAGE := $(PRODUCT_OUT)/$(PAOSP_PACKAGE)
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ./vendor/xenonhd/build/tools/ota
-	$(hide) rm -rf $(PRODUCT_OUT)/XenonHD*
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(XENONHD_TARGET_PACKAGE)
-	$(hide) $(MD5SUM) $(XENONHD_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(XENONHD_TARGET_PACKAGE).md5sum
+	$(hide) ./vendor/paosp/build/tools/ota
+	$(hide) rm -rf $(PRODUCT_OUT)/PornAOSP*
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(PAOSP_TARGET_PACKAGE)
+	$(hide) $(MD5SUM) $(PAOSP_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(PAOSP_TARGET_PACKAGE).md5sum
 	$(hide) rm -rf $(INTERNAL_OTA_PACKAGE_TARGET)
-	@echo "$(XENONHD_TARGET_PACKAGE)"
+	@echo "$(PAOSP_TARGET_PACKAGE)"
 	@echo -e "\a\n================-Package complete-================"
-	@echo "file: $(XENONHD_PACKAGE)"
-	@echo "md5: $(shell cat $(XENONHD_TARGET_PACKAGE).md5sum | awk '{ print $$1 }')"
-	@echo "size: $(shell ls -lah $(XENONHD_TARGET_PACKAGE) | awk '{ print $$5 }')"
+	@echo "file: $(PAOSP_PACKAGE)"
+	@echo "md5: $(shell cat $(PAOSP_TARGET_PACKAGE).md5sum | awk '{ print $$1 }')"
+	@echo "size: $(shell ls -lah $(PAOSP_TARGET_PACKAGE) | awk '{ print $$5 }')"
 	@echo -e "==================================================\n"
 	$(hide) jack-admin stop-server

@@ -1,2 +1,2 @@
 # Bring in Mediatek helper macros
-include vendor/xenonhd/build/core/mtk_utils.mk
+include vendor/paosp/build/core/mtk_utils.mk

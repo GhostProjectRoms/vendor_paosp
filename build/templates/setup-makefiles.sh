@@ -27,9 +27,9 @@ INITIAL_COPYRIGHT_YEAR=**** FILL IN COPYRIGHT YEAR ****
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-XENONHD_ROOT="$MY_DIR"/../../..
+PAOSP_ROOT="$MY_DIR"/../../..
 
-HELPER="$XENONHD_ROOT"/vendor/xenonhd/build/tools/extract_utils.sh
+HELPER="$PAOSP_ROOT"/vendor/paosp/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -37,7 +37,7 @@ fi
 . "$HELPER"
 
 # Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$XENONHD_ROOT"
+setup_vendor "$DEVICE" "$VENDOR" "$PAOSP_ROOT"
 
 # Copyright headers and guards
 write_headers

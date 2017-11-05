@@ -1,2 +1,2 @@
-# Inherit mini common XenonHD stuff
-$(call inherit-product, vendor/xenonhd/config/common_mini.mk)
+# Inherit mini common PornAOSP stuff
+$(call inherit-product, vendor/paosp/config/common_mini.mk)

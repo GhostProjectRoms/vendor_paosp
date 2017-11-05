@@ -1,4 +1,4 @@
-function __print_xenonhd_functions_help() {
+function __print_paosp_functions_help() {
 cat <<EOF
 Additional LineageOS functions:
 - cout:            Changes directory to out.
@@ -67,10 +67,10 @@ function breakfast()
 {
     target=$1
     local variant=$2
-    XENONHD_DEVICES_ONLY="true"
+    PAOSP_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/xenonhd/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/paosp/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -86,12 +86,12 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the XenonHD model name
+            # This is probably just the PornAOSP model name
             if [ -z "$variant" ]; then
                 variant="userdebug"
             fi
 
-            lunch xenonhd_$target-$variant
+            lunch paosp_$target-$variant
         fi
     fi
     return $?
@@ -102,8 +102,8 @@ alias bib=breakfast
 function eat()
 {
     if [ "$OUT" ] ; then
-        MODVERSION=$(get_build_var XENONHD_VERSION)
-        ZIPFILE=xenonhd-$MODVERSION.zip
+        MODVERSION=$(get_build_var PAOSP_VERSION)
+        ZIPFILE=paosp-$MODVERSION.zip
         ZIPPATH=$OUT/$ZIPFILE
         if [ ! -f $ZIPPATH ] ; then
             echo "Nothing to eat"
@@ -118,7 +118,7 @@ function eat()
             done
             echo "Device Found.."
         fi
-        if (adb shell getprop ro.xenonhd.device | grep -q "$XENONHD_BUILD"); then
+        if (adb shell getprop ro.paosp.device | grep -q "$PAOSP_BUILD"); then
             # if adbd isn't root we can't write to /cache/recovery/
             adb root
             sleep 1
@@ -134,7 +134,7 @@ EOF
             fi
             rm /tmp/command
         else
-            echo "The connected device does not appear to be $XENONHD_BUILD, run away!"
+            echo "The connected device does not appear to be $PAOSP_BUILD, run away!"
         fi
         return $?
     else
@@ -356,7 +356,7 @@ function installboot()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 > /dev/null
     adb wait-for-online remount
-    if (adb shell getprop ro.xenonhd.device | grep -q "$XENONHD_BUILD");
+    if (adb shell getprop ro.paosp.device | grep -q "$PAOSP_BUILD");
     then
         adb push $OUT/boot.img /cache/
         if [ -e "$OUT/system/lib/modules/*" ];
@@ -370,7 +370,7 @@ function installboot()
         adb shell dd if=/cache/boot.img of=$PARTITION
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $XENONHD_BUILD, run away!"
+        echo "The connected device does not appear to be $PAOSP_BUILD, run away!"
     fi
 }
 
@@ -404,13 +404,13 @@ function installrecovery()
     sleep 1
     adb wait-for-online shell mount /system 2>&1 >> /dev/null
     adb wait-for-online remount
-    if (adb shell getprop ro.xenonhd.device | grep -q "$XENONHD_BUILD");
+    if (adb shell getprop ro.paosp.device | grep -q "$PAOSP_BUILD");
     then
         adb push $OUT/recovery.img /cache/
         adb shell dd if=/cache/recovery.img of=$PARTITION
         echo "Installation complete."
     else
-        echo "The connected device does not appear to be $XENONHD_BUILD, run away!"
+        echo "The connected device does not appear to be $PAOSP_BUILD, run away!"
     fi
 }
 
@@ -788,7 +788,7 @@ function dopush()
         echo "Device Found."
     fi
 
-    if (adb shell getprop ro.xenonhd.device | grep -q "$XENONHD_BUILD") || [ "$FORCE_PUSH" = "true" ];
+    if (adb shell getprop ro.paosp.device | grep -q "$PAOSP_BUILD") || [ "$FORCE_PUSH" = "true" ];
     then
     # retrieve IP and PORT info if we're using a TCP connection
     TCPIPPORT=$(adb devices \
@@ -906,7 +906,7 @@ EOF
     rm -f $OUT/.log
     return 0
     else
-        echo "The connected device does not appear to be $XENONHD_BUILD, run away!"
+        echo "The connected device does not appear to be $PAOSP_BUILD, run away!"
     fi
 }
 
@@ -919,7 +919,7 @@ alias cmkap='dopush cmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/xenonhd/build/tools/repopick.py $@
+    $T/vendor/paosp/build/tools/repopick.py $@
 }
 
 function fixup_common_out_dir() {

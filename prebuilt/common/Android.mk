@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-# XenonHD bootanimation
+# PornAOSP bootanimation
 include $(CLEAR_VARS)
 LOCAL_MODULE := bootanimation.zip
 LOCAL_SRC_FILES := media/bootanimation.zip

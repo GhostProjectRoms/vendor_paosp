@@ -2,7 +2,7 @@
 #
 # Print startup info
 #
-L="log -p i -t xenonhd"
+L="log -p i -t paosp"
 
 $L "   __  __                      _   _ ____     "
 $L "   \ \/ /___ _ __   ___  _ __ | | | |  _ \    "
@@ -10,4 +10,4 @@ $L "    \  // _ \ '_ \ / _ \| '_ \| |_| | | | |   "
 $L "    /  \  __/ | | | (_) | | | |  _  | |_| |   "
 $L "   /_/\_\___|_| |_|\___/|_| |_|_| |_|____/    "
 $L "                                              "
-$L "Welcome to Android `getprop ro.build.version.release` / XenonHD-`getprop ro.xenonhd.version`";
+$L "Welcome to Android `getprop ro.build.version.release` / PornAOSP-`getprop ro.paosp.version`";

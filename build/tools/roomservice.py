@@ -52,7 +52,7 @@ except:
     device = product
 
 if not depsonly:
-    print("Device %s not found. Attempting to retrieve device repository from TeamHorizon Github (http://github.com/TeamHorizon)." % device)
+    print("Device %s not found. Attempting to retrieve device repository from PornAOSP Github (http://github.com/PornAOSP)." % device)
 
 repositories = []
 
@@ -72,7 +72,7 @@ def add_auth(githubreq):
         githubreq.add_header("Authorization","Basic %s" % githubauth)
 
 if not depsonly:
-    githubreq = urllib.request.Request("https://api.github.com/search/repositories?q=%s+user:TeamHorizon+in:name+fork:true" % device)
+    githubreq = urllib.request.Request("https://api.github.com/search/repositories?q=%s+user:PornAOSP+in:name+fork:true" % device)
     add_auth(githubreq)
     try:
         result = json.loads(urllib.request.urlopen(githubreq).read().decode())
@@ -174,12 +174,12 @@ def add_to_manifest(repositories, fallback_branch = None):
         repo_target = repository['target_path']
         print('Checking if %s is fetched from %s' % (repo_target, repo_name))
         if is_in_manifest(repo_target):
-            print('TeamHorizon/%s already fetched to %s' % (repo_name, repo_target))
+            print('PornAOSP/%s already fetched to %s' % (repo_name, repo_target))
             continue
 
-        print('Adding dependency: TeamHorizon/%s -> %s' % (repo_name, repo_target))
+        print('Adding dependency: PornAOSP/%s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "TeamHorizon/%s" % repo_name, "revision": "o"})
+            "remote": "github", "name": "PornAOSP/%s" % repo_name, "revision": "o"})
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
@@ -201,7 +201,7 @@ def add_to_manifest(repositories, fallback_branch = None):
 
 def fetch_dependencies(repo_path, fallback_branch = None):
     print('Looking for dependencies in %s' % repo_path)
-    dependencies_path = repo_path + '/xenonhd.dependencies'
+    dependencies_path = repo_path + '/paosp.dependencies'
     syncable_repos = []
     verify_repos = []
 
@@ -297,4 +297,4 @@ else:
             print("Done")
             sys.exit()
 
-print("Repository for %s not found in the TeamHorizon Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
+print("Repository for %s not found in the PornAOSP Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)

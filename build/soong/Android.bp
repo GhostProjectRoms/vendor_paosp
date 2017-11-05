@@ -1,6 +1,6 @@
 bootstrap_go_package {
-    name: "soong-xenonhd",
-    pkgPath: "xenonhd/soong/android",
+    name: "soong-paosp",
+    pkgPath: "paosp/soong/android",
     srcs: [
         "android/variable.go",
     ],

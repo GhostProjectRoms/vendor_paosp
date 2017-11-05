@@ -1,13 +1,13 @@
 #!/bin/bash
-# XenonHD OTA
+# PornAOSP OTA
 
 # Determine build properties
-MODVERSION=`grep ro.xenonhd.version $OUT/system/build.prop | cut -d'=' -f2`
-DEVICE=`grep ro.xenonhd.device $OUT/system/build.prop | cut -d'=' -f2`
-OTA_TYPE=`grep ro.xenonhd.type $OUT/system/build.prop | cut -d'=' -f2`
-DONATE=`grep ro.xenonhd.donate $OUT/system/build.prop | cut -d'=' -f2`
+MODVERSION=`grep ro.paosp.version $OUT/system/build.prop | cut -d'=' -f2`
+DEVICE=`grep ro.paosp.device $OUT/system/build.prop | cut -d'=' -f2`
+OTA_TYPE=`grep ro.paosp.type $OUT/system/build.prop | cut -d'=' -f2`
+DONATE=`grep ro.paosp.donate $OUT/system/build.prop | cut -d'=' -f2`
 
-XENONHD_TARGET_PACKAGE=$MODVERSION-$DEVICE.zip
+PAOSP_TARGET_PACKAGE=$MODVERSION-$DEVICE.zip
 
 # Create OTA XML file
 if [ -f $ANDROID_BUILD_TOP/ota_conf ]; then
@@ -15,18 +15,18 @@ if [ -z "$DONATE" ]; then
 
 cat >$OUT/ota_$DEVICE.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
-<XenonOTA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ota.xsd">
+<PornOTA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ota.xsd">
     <Oreo>
         <$DEVICE>
             <Filename>$MODVERSION</Filename>
             <RomUrl
                 id="rom"
                 title="ROM"
-                description="Download the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$XENONHD_TARGET_PACKAGE</RomUrl>
+                description="Download the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$PAOSP_TARGET_PACKAGE</RomUrl>
             <MD5Url
                 id="md5"
                 title="MD5"
-                description="Download MD5 of the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$XENONHD_TARGET_PACKAGE.md5sum</MD5Url>
+                description="Download MD5 of the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$PAOSP_TARGET_PACKAGE.md5sum</MD5Url>
             <OpenGappsUrl
                 id="opengapps"
                 title="Open Gapps"
@@ -37,25 +37,25 @@ cat >$OUT/ota_$DEVICE.xml <<EOF
                 description="View the latest changelog">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/Changelog.txt</ChangelogUrl>
         </$DEVICE>
     </Oreo>
-</XenonOTA>
+</PornOTA>
 EOF
 
 else
 
 cat >$OUT/ota_$DEVICE.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
-<XenonOTA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ota.xsd">
+<PornOTA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ota.xsd">
     <Oreo>
         <$DEVICE>
             <Filename>$MODVERSION</Filename>
             <RomUrl
                 id="rom"
                 title="ROM"
-                description="Download the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$XENONHD_TARGET_PACKAGE</RomUrl>
+                description="Download the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$PAOSP_TARGET_PACKAGE</RomUrl>
             <MD5Url
                 id="md5"
                 title="MD5"
-                description="Download MD5 of the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$XENONHD_TARGET_PACKAGE.md5sum</MD5Url>
+                description="Download MD5 of the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$PAOSP_TARGET_PACKAGE.md5sum</MD5Url>
             <OpenGappsUrl
                 id="opengapps"
                 title="Open Gapps"
@@ -70,7 +70,7 @@ cat >$OUT/ota_$DEVICE.xml <<EOF
                 description="Donate to your device maintainer">$DONATE</DonateUrl>
         </$DEVICE>
     </Oreo>
-</XenonOTA>
+</PornOTA>
 EOF
 
 fi

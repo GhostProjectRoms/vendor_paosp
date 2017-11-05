@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= XenonHD
+PRODUCT_BRAND ?= PornAOSP
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -37,37 +37,37 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/xenonhd/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/xenonhd/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/xenonhd/prebuilt/common/bin/50-xenonhd.sh:system/addon.d/50-xenonhd.sh \
-    vendor/xenonhd/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/paosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/paosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/paosp/prebuilt/common/bin/50-paosp.sh:system/addon.d/50-paosp.sh \
+    vendor/paosp/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/xenonhd/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/paosp/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
-# XenonHD-specific broadcast actions whitelist
+# PornAOSP-specific broadcast actions whitelist
 PRODUCT_COPY_FILES += \
-    vendor/xenonhd/config/permissions/xenonhd-sysconfig.xml:system/etc/sysconfig/xenonhd-sysconfig.xml
+    vendor/paosp/config/permissions/paosp-sysconfig.xml:system/etc/sysconfig/paosp-sysconfig.xml
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/xenonhd/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/xenonhd/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/paosp/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/paosp/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/xenonhd/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/paosp/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
-# Copy all XenonHD-specific init rc files
-$(foreach f,$(wildcard vendor/xenonhd/prebuilt/common/etc/init/*.rc),\
+# Copy all PornAOSP-specific init rc files
+$(foreach f,$(wildcard vendor/paosp/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
-    vendor/xenonhd/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
+    vendor/paosp/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -77,35 +77,35 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# This is XenonHD!
+# This is PornAOSP!
 PRODUCT_COPY_FILES += \
-    vendor/xenonhd/config/permissions/org.lineageos.android.xml:system/etc/permissions/org.lineageos.android.xml
+    vendor/paosp/config/permissions/org.lineageos.android.xml:system/etc/permissions/org.lineageos.android.xml
 
-# Include XenonHD audio files
-include vendor/xenonhd/config/xenonhd_audio.mk
+# Include PornAOSP audio files
+include vendor/paosp/config/paosp_audio.mk
 
-# Include XenonOTA config
-include vendor/xenonhd/config/ota.mk
+# Include PornOTA config
+include vendor/paosp/config/ota.mk
 
 # Fix Google dialer
 PRODUCT_COPY_FILES += \
-    vendor/xenonhd/prebuilt/common/etc/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+    vendor/paosp/prebuilt/common/etc/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
 ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
 # Lineage SDK
-include vendor/xenonhd/config/lineage_sdk_common.mk
+include vendor/paosp/config/lineage_sdk_common.mk
 endif
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/xenonhd/config/twrp.mk
+include vendor/paosp/config/twrp.mk
 endif
 
 # Bootanimation
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
-# Required XenonHD packages
+# Required PornAOSP packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
     CMAudioService \
@@ -129,7 +129,7 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
 
-# Custom XenonHD packages
+# Custom PornAOSP packages
 PRODUCT_PACKAGES += \
     AudioFX \
     LineageSettingsProvider \
@@ -146,7 +146,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Exchange2
 
-# Extra tools in XenonHD
+# Extra tools in PornAOSP
 PRODUCT_PACKAGES += \
     7z \
     bash \
@@ -229,10 +229,10 @@ PRODUCT_PACKAGES += \
 endif
 endif
 
-DEVICE_PACKAGE_OVERLAYS += vendor/xenonhd/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/paosp/overlay/common
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/xenonhd/config/partner_gms.mk
+-include vendor/paosp/config/partner_gms.mk
 -include vendor/cyngn/product.mk
 
 $(call prepend-product-if-exists, vendor/extra/product.mk)

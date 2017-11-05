@@ -1,10 +1,10 @@
 #
-# XenonHD Audio Files
+# PornAOSP Audio Files
 #
 
-ALARM_PATH := vendor/xenonhd/prebuilt/common/media/audio/alarms
-NOTIFICATION_PATH := vendor/xenonhd/prebuilt/common/media/audio/notifications
-RINGTONE_PATH := vendor/xenonhd/prebuilt/common/media/audio/ringtones
+ALARM_PATH := vendor/paosp/prebuilt/common/media/audio/alarms
+NOTIFICATION_PATH := vendor/paosp/prebuilt/common/media/audio/notifications
+RINGTONE_PATH := vendor/paosp/prebuilt/common/media/audio/ringtones
 
 ifneq ($(DISABLE_AUDIOFX), true)
 PRODUCT_PACKAGES += \

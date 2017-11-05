@@ -1,9 +1,9 @@
-# Inherit full common XenonHD stuff
-$(call inherit-product, vendor/xenonhd/config/common_full.mk)
+# Inherit full common PornAOSP stuff
+$(call inherit-product, vendor/paosp/config/common_full.mk)
 
 # Required packages
 PRODUCT_PACKAGES += \
     LatinIME
 
-# Include XenonHD LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/xenonhd/overlay/dictionaries
+# Include PornAOSP LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/paosp/overlay/dictionaries
