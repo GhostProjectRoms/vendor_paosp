@@ -136,7 +136,7 @@ PRODUCT_PACKAGES += \
     LineageSetupWizard \
     ExactCalculator \
     LockClock \
-    NovaLauncher \
+    Focus \
     WallpaperPicker \
     WeatherProvider \
     Telegram \
