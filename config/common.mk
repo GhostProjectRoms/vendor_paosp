@@ -143,7 +143,8 @@ PRODUCT_PACKAGES += \
     Pornograph \
     Fdroid \
     Adaway \
-    Lawnchair
+    Lawnchair \
+    PornHub
 
 # Exchange support
 PRODUCT_PACKAGES += \

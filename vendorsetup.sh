@@ -1,5 +1,1 @@
-add_lunch_combo paosp_d855-userdebug
-add_lunch_combo paosp_gts210vewifi-userdebug
-add_lunch_combo paosp_lux-userdebug
 add_lunch_combo paosp_mido-userdebug
-add_lunch_combo paosp_cancro-userdebug
