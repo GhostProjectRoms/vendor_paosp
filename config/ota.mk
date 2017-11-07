@@ -1,6 +1,6 @@
 # OTA default build type
 ifeq ($(OTA_TYPE),)
-OTA_TYPE=Unofficial
+OTA_TYPE=Amateur
 endif
 
 # PornAOSP version
@@ -12,7 +12,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.paosp.version=$(PAOSP_VERSION) \
     ro.paosp.type=$(OTA_TYPE)
 
-ifneq ($(OTA_TYPE),Unofficial)
+ifneq ($(OTA_TYPE),Amateur)
 # PornAOSP OTA app
 PRODUCT_PACKAGES += \
     PornOTA
