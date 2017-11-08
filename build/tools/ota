@@ -22,11 +22,11 @@ cat >$OUT/ota_$DEVICE.xml <<EOF
             <RomUrl
                 id="rom"
                 title="ROM"
-                description="Download the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$PAOSP_TARGET_PACKAGE</RomUrl>
+                description="Download the latest build">https://drive.google.com/open?id=1W2zoRPMjnmT8t0dSbN6Nf3f_rfJhtcSW</RomUrl>
             <MD5Url
                 id="md5"
                 title="MD5"
-                description="Download MD5 of the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$PAOSP_TARGET_PACKAGE.md5sum</MD5Url>
+                description="Download MD5 of the latest build">https://drive.google.com/open?id=1-hqGRTcAIXzpbu6qJkBKLniRmbnlrvaQ</MD5Url>
             <OpenGappsUrl
                 id="opengapps"
                 title="Open Gapps"
@@ -34,7 +34,7 @@ cat >$OUT/ota_$DEVICE.xml <<EOF
             <ChangelogUrl
                 id="changelog"
                 title="Changelog"
-                description="View the latest changelog">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/Changelog.txt</ChangelogUrl>
+                description="Not working for now">https://google.com</ChangelogUrl>
         </$DEVICE>
     </Oreo>
 </PornOTA>
@@ -51,11 +51,11 @@ cat >$OUT/ota_$DEVICE.xml <<EOF
             <RomUrl
                 id="rom"
                 title="ROM"
-                description="Download the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$PAOSP_TARGET_PACKAGE</RomUrl>
+                description="Download the latest build">https://drive.google.com/open?id=1W2zoRPMjnmT8t0dSbN6Nf3f_rfJhtcSW</RomUrl>
             <MD5Url
                 id="md5"
                 title="MD5"
-                description="Download MD5 of the latest build">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/$PAOSP_TARGET_PACKAGE.md5sum</MD5Url>
+                description="Download MD5 of the latest build">https://drive.google.com/open?id=1-hqGRTcAIXzpbu6qJkBKLniRmbnlrvaQ</MD5Url>
             <OpenGappsUrl
                 id="opengapps"
                 title="Open Gapps"
@@ -63,7 +63,7 @@ cat >$OUT/ota_$DEVICE.xml <<EOF
             <ChangelogUrl
                 id="changelog"
                 title="Changelog"
-                description="View the latest changelog">https://mirrors.c0urier.net/android/teamhorizon/O/$OTA_TYPE/$DEVICE/Changelog.txt</ChangelogUrl>
+                description="Not working for now">https://google.com</ChangelogUrl>
             <DonateUrl
                 id="donate"
                 title="Support"
