@@ -18,7 +18,7 @@ PRODUCT_PACKAGES += \
     PornOTA
 
 $(shell echo -e "# OTA_configuration\n \
-ota_url=https://mirrors.c0urier.net/android/teamhorizon/O/OTA/ota_$(DEVICE).xml\n \
+ota_url=https://github.com/PornAOSP/PROFESSIONAL_DEVICES/blob/master/ota_$(DEVICE).xml\n \
 device_name=ro.paosp.device\n \
 release_type=Oreo\n \
 version_source=ro.paosp.version\n \
